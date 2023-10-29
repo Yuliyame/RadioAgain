@@ -1,10 +1,11 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
 public class RadioTest {
     @Test
     public void testZeroStationPosition() {
-        Radio radio = new Radio();
-        radio.setCurrentStation(6);
+        Radio radio = new Radio(10);
+        radio.setCurrentStation(9);
         radio.setCurrentStation(0);
 
         int expected = 0;
@@ -15,7 +16,7 @@ public class RadioTest {
 
     @Test
     public void testMinusOneStationPosition() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentStation(-1);
 
         int expected = 0;
@@ -23,10 +24,9 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
 
     }
-
     @Test
     public void testOneStationPosition() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentStation(1);
 
         int expected = 1;
@@ -35,32 +35,32 @@ public class RadioTest {
     }
 
     @Test
-    public void testFiveStationPosition() {
-        Radio radio = new Radio();
-        radio.setCurrentStation(8);
+    public void testTenStationPosition() {
+        Radio radio = new Radio(10);
+        radio.setCurrentStation(10);
 
-        int expected = 8;
+        int expected = 0;
         int actual = radio.getCurrentStation();
         Assertions.assertEquals(expected, actual);
-
     }
 
     @Test
-    public void testSixStationPosition() {
-        Radio radio = new Radio();
+    public void testNineStationPosition() {
+        Radio radio = new Radio(10);
         radio.setCurrentStation(9);
 
         int expected = 9;
         int actual = radio.getCurrentStation();
         Assertions.assertEquals(expected, actual);
+
     }
 
     @Test
-    public void testSevenStationPosition() {
-        Radio radio = new Radio();
-        radio.setCurrentStation(10);
+    public void testEightStationPosition() {
+        Radio radio = new Radio(10);
+        radio.setCurrentStation(8);
 
-        int expected = 0;
+        int expected = 8;
         int actual = radio.getCurrentStation();
         Assertions.assertEquals(expected, actual);
     }
